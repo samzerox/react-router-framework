@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { redirect } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,6 +8,17 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+export async function loader() {
+  return redirect('/chat')
+}
+
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div>
+      <h1 className="text-4xl font-thin">Bienvenido a React Router!!!</h1>
+      <p className="text-lg">
+        Este es un proyecto de React Router creado con el comando de react-router
+      </p>
+    </div>
+  );
 }
